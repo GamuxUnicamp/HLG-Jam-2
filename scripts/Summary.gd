@@ -25,7 +25,7 @@ func initialize(profit:int, total_customers:int, happy_customers:int) -> void:
 	$Profit.text = 'Lucro: $' + str(profit)
 	$Total_customers.text = 'Clientes atendidos: ' + str(total_customers)
 	$Happy_customers.text = 'Clientes satisfeitos: ' + str(happy_customers)
-	$Next_Day/Label.text = 'Dia ' + str(Global.day) + ' de 7'
+	$Next_Day/Label.text = 'Dia ' + str(Global.day+1) + ' de 7'
 
 # animation to move downward
 func go_down() -> void:
