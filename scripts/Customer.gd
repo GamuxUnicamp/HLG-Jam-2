@@ -8,7 +8,7 @@ var path := PoolVector2Array() setget set_path
 var isMoving:bool = false
 
 var angry:bool = false
-var patience:float = 5
+onready var patience:float = Global.patience
 onready var patience_bar = $Patience_bar
 
 var table:Area2D
@@ -28,17 +28,18 @@ func _process(delta:float) -> void:
 		var move_distance:float = speed * delta
 		move_along_path(move_distance)
 	
-	elif waiting_menu:
+	if waiting_menu:
 		patience_bar.show()
 		patience -= delta
 		patience_bar.value = patience
 		if patience < 0:
+			waiting_menu = false
 			leave()
 		elif patience < 2:
 			infuriate()
 	
 	elif leaving:
-		if position.y < get_viewport_rect().position.y:
+		if position.y > get_viewport_rect().size.y+64:
 			queue_free()
 
 func infuriate() -> void:
