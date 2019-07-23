@@ -9,10 +9,21 @@ onready var player = $Player
 onready var customers = $Customers
 onready var tables = $Tables
 
+export var working_time = 10
+
+var summary_node:PackedScene = preload('res://scenes/Summary.tscn')
+
+var time = 0
+
 # _unhandled_input ignores user interface events
 func _process(delta:float) -> void:
+	time += delta
 	player_movement()
 	customer_movement()
+	if time > working_time:
+		customers.set_process(false)
+		if customers.get_children() == []:
+			end_day()
 	
 func player_movement() -> void:
 		# function pre-requisites
@@ -46,9 +57,29 @@ func customer_movement() -> void:
 			
 			elif customers.line:
 				customer.isMoving = true
-				customer.path = navigation.get_simple_path(customer.global_position, Vector2(210,600), false)
+				customer.path = navigation.get_simple_path(customer.global_position, Vector2(390,1060), false)
 				break
 		
 		elif customer.leaving:
 			customer.isMoving = true
-			customer.path = navigation.get_simple_path(customer.global_position, Vector2(210,640), false)
+			customer.path = navigation.get_simple_path(customer.global_position, Vector2(390,1150), false)
+
+func end_day() -> void:
+	set_process(false)
+	
+	var summary = summary_node.instance()
+	summary.initialize(player.profit, customers.count, 0)
+	add_child(summary)
+	
+	player.hide()
+	tables.hide()
+	customers.hide()
+
+func next_day() -> void:
+	Global.day += 1
+	
+	player.show()
+	tables.show()
+	customers.show()
+	
+	get_tree().reload_current_scene()

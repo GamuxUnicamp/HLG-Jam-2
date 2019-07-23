@@ -3,17 +3,17 @@
 
 extends Node2D
 
-export var speed:float = 250
 var path := PoolVector2Array() setget set_path
 var isMoving:bool = false
-
 var interactions:Array
+
+var profit = 0
 
 func _ready() -> void:
 	set_process(false)
 
 func _process(delta:float) -> void:
-	var move_distance:float = speed * delta
+	var move_distance:float = Global.player_speed * delta
 	move_along_path(move_distance)
 
 func move_along_path(distance:float) -> void:
