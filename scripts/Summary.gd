@@ -58,12 +58,12 @@ func buy_shoes() -> void:
 func buy_etiquette() -> void:
 	if Global.player_money >= 50:
 		Global.player_money -= 50
-		Global.spawn_delay -= 2
+		Global.patience += 2
 
 func buy_cat_ears() -> void:
 	if Global.player_money >= 50:
 		Global.player_money -= 50
-		Global.patience += 2
+		Global.spawn_delay -= 1
 
 # destroy object when it finishes going up
 func timeout(obj, key) -> void:
