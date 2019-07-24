@@ -125,7 +125,6 @@ text = "Banco: $xxx"
 valign = 1
 
 [node name="Shoes" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 32, 68 )
 
 [node name="Button" type="Button" parent="Shop/Shoes"]

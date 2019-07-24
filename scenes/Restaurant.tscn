@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Restaurant.gd" type="Script" id=1]
 [ext_resource path="res://Tileset.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/Tables.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Table.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Customers.gd" type="Script" id=6]
+[ext_resource path="res://resource/copycat(by syncopika).ogg" type="AudioStream" id=7]
 
 [node name="Restaurant" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,24 +28,36 @@ script = ExtResource( 4 )
 
 [node name="Table_1" parent="Tables" instance=ExtResource( 5 )]
 position = Vector2( 820, 813.096 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="Table_2" parent="Tables" instance=ExtResource( 5 )]
 position = Vector2( 820, 550 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="Table_3" parent="Tables" instance=ExtResource( 5 )]
 position = Vector2( 1150, 810 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="Table_4" parent="Tables" instance=ExtResource( 5 )]
 position = Vector2( 1150, 544.064 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="Table_5" parent="Tables" instance=ExtResource( 5 )]
 position = Vector2( 1492.7, 810 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="Table_6" parent="Tables" instance=ExtResource( 5 )]
 position = Vector2( 1492.7, 544.063 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="Path" type="Line2D" parent="."]
 texture_mode = 91
 
 [node name="Customers" type="Node2D" parent="."]
 script = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0
+autoplay = true
+mix_target = 1
