@@ -44,12 +44,11 @@ func player_movement() -> void:
 
 func customer_movement() -> void:
 	for customer in customers.get_children():
-		if customer.waiting_in_line == true:
+		if customer.status == customer.WAITING_IN_LINE:
 			var table = tables.get_available_table()
 			if table != null:
 				customers.line = false
 				customer.isMoving = true
-				customer.waiting_in_line = false
 				customer.table = table
 				table.customer = customer
 				customer.path = navigation.get_simple_path(customer.global_position, table.global_position, false)
@@ -60,7 +59,7 @@ func customer_movement() -> void:
 				customer.path = navigation.get_simple_path(customer.global_position, Vector2(390,1060), false)
 				break
 		
-		elif customer.leaving:
+		elif customer.status == customer.LEAVING:
 			customer.isMoving = true
 			customer.path = navigation.get_simple_path(customer.global_position, Vector2(390,1150), false)
 
