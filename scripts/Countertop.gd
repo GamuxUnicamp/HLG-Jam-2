@@ -15,7 +15,7 @@ func _ready():
 
 func _process(delta):
 	if self in player.interactions:
-		get_node("Sprite").material.set_shader_param("width", 20)
+		get_node('Sprite').material.set_shader_param('width', 20)
 	
 	for slot in slots.get_children():
 		if slot.is_class('TextureProgress') and slot.visible:
@@ -38,6 +38,7 @@ func _on_area_enter(area):
 			while player.orders.size() > 0:
 				for slot in slots.get_children():
 					if not slot.visible:
+						print(slot.name)
 						var food = food_node.instance()
 						food.index = player.remove_order()
 						slot.add_child(food)
@@ -56,6 +57,7 @@ func _on_area_enter(area):
 					player.add_child(food)
 					player.hands = food
 					food.set_global_position(player.get_global_position() + Vector2(64,0))
+					busy_slots -= 1
 					slot.hide()
 					break
 

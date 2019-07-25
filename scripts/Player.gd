@@ -48,7 +48,7 @@ func add_order(food_index:int) -> void:
 		orders_node.show()
 		orders_node.get_node('Label').text = str(1)
 	else:
-		var orders_number = int(orders_node.get_node('Label').value)
+		var orders_number = int(orders_node.get_node('Label').text)
 		orders_node.get_node('Label').text = str(orders_number + 1)
 	
 	orders.append(food_index)
@@ -60,7 +60,7 @@ func remove_order() -> int:
 	if orders.size() == 0:
 		orders_node.hide()
 	else:
-		var orders_number = int(orders_node.get_node('Label').value)
+		var orders_number = int(orders_node.get_node('Label').text)
 		orders_node.get_node('Label').text = str(orders_number - 1)
 	
 	return order
