@@ -121,7 +121,7 @@ func receive_waiter() -> void:
 			patience_bar.show()
 			
 		WAITING_FOOD:
-			if player.hands.index == desired_food:
+			if player.hands and player.hands.index == desired_food:
 				var food = player.hands
 				player.remove_child(food)
 				table.add_child(food)
