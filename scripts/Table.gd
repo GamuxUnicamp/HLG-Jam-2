@@ -17,6 +17,8 @@ func _ready():
 func _process(delta):
 	if self in player.interactions:
 		get_node("Sprite").material.set_shader_param("width", 20)
+	else:
+		set_process(false)
 
 func _input(event):
 	if Input.is_action_just_pressed('click') and mouse_over:
@@ -42,4 +44,5 @@ func _on_mouse_enter():
 
 func _on_mouse_exit():
 	mouse_over = false
-	get_node("Sprite").material.set_shader_param("width", 0)
+	if not self in player.interactions:
+		get_node("Sprite").material.set_shader_param("width", 0)

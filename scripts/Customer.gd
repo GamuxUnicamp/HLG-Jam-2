@@ -3,7 +3,7 @@
 
 extends Node2D
 
-enum {WAITING_IN_LINE, GOING_TO_TABLE, WAITING_MENU, DECIDING_FOOD, WAITING_TO_ORDER, WAITING_FOOD, EATING, LEAVING}
+enum { WAITING_IN_LINE, GOING_TO_TABLE, WAITING_MENU,DECIDING_FOOD, WAITING_TO_ORDER, WAITING_FOOD, EATING, LEAVING }
 
 export var speed:float = 150
 var path := PoolVector2Array() setget set_path
@@ -12,6 +12,7 @@ var isMoving:bool = false
 var angry:bool = false
 onready var patience:float = Global.patience
 onready var patience_bar = $Patience_bar
+onready var player = get_tree().get_root().find_node("Player", true, false)
 
 var table:Area2D
 
@@ -113,11 +114,18 @@ func receive_waiter() -> void:
 			status = DECIDING_FOOD
 	
 		WAITING_TO_ORDER:
-			desired_food = rand_range(0,1)
+			desired_food = rand_range(0,9)
+			player.add_order(desired_food)
 			status = WAITING_FOOD
-			patience = Global.patience
+			patience = Global.patience + 10
 			patience_bar.show()
 			
 		WAITING_FOOD:
-			patience_bar.hide()
-			status = EATING
+			if player.hands.index == desired_food:
+				var food = player.hands
+				player.remove_child(food)
+				table.add_child(food)
+				player.hands = null
+				patience_bar.value = Global.patience
+				patience_bar.hide()
+				status = EATING
