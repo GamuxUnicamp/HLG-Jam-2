@@ -14,6 +14,12 @@ export var working_time = 10
 var summary_node:PackedScene = preload('res://scenes/Summary.tscn')
 
 var time = 0
+var happy_customers = 0
+
+func _ready() -> void:
+	set_process(false)
+	yield(get_tree().create_timer(0.2), 'timeout')
+	set_process(true)
 
 # _unhandled_input ignores user interface events
 func _process(delta:float) -> void:
@@ -49,6 +55,7 @@ func customer_movement() -> void:
 			if table != null:
 				customers.line = false
 				customer.isMoving = true
+				customer.status = customer.GOING_TO_TABLE
 				customer.table = table
 				table.customer = customer
 				customer.path = navigation.get_simple_path(customer.global_position, table.global_position, false)
@@ -67,7 +74,7 @@ func end_day() -> void:
 	set_process(false)
 	
 	var summary = summary_node.instance()
-	summary.initialize(player.profit, customers.count, 0)
+	summary.initialize(player.profit, customers.count, happy_customers)
 	add_child(summary)
 	
 	player.hide()

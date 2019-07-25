@@ -3,7 +3,7 @@
 
 extends Node2D
 
-enum {WAITING_IN_LINE, WAITING_MENU, DECIDING_FOOD, WAITING_FOOD, EATING, LEAVING}
+enum { WAITING_IN_LINE, GOING_TO_TABLE, WAITING_MENU,DECIDING_FOOD, WAITING_TO_ORDER, WAITING_FOOD, EATING, LEAVING }
 
 export var speed:float = 150
 var path := PoolVector2Array() setget set_path
@@ -12,10 +12,12 @@ var isMoving:bool = false
 var angry:bool = false
 onready var patience:float = Global.patience
 onready var patience_bar = $Patience_bar
+onready var player = get_tree().get_root().find_node("Player", true, false)
 
 var table:Area2D
 
 var status:int = WAITING_IN_LINE
+var desired_food:int
 
 func _ready() -> void:
 	patience_bar.max_value = patience
@@ -27,46 +29,60 @@ func _process(delta:float) -> void:
 		var move_distance:float = speed * delta
 		move_along_path(move_distance)
 	
-	if status == WAITING_MENU:
-		patience_bar.show()
-		patience -= delta
-		patience_bar.value = patience
-		if patience < 0:
-			leave()
-		elif patience < 2:
-			infuriate()
+	match status:
+		WAITING_MENU:
+			patience -= delta
+			patience_bar.value = patience
+			if patience < 0:
+				leave()
+			elif patience < 2:
+				infuriate()
 	
-	elif status == DECIDING_FOOD:
-		patience_bar.hide()
-		patience -= delta
-		if patience <0:
-			status = WAITING_FOOD
-			patience_bar.show()
+		DECIDING_FOOD:
+			patience -= delta
+			if patience < 0:
+				status = WAITING_TO_ORDER
+				patience = Global.patience
+				patience_bar.show()
 	
-	elif status == EATING:
-		patience_bar.hide()
-		patience -= delta
-		if patience <0:
-			leave()
+		WAITING_TO_ORDER:
+			patience -= delta
+			patience_bar.value = patience
+			if patience < 0:
+				leave()
+			elif patience < 2:
+				infuriate()
 	
-	elif status == LEAVING:
-		if position.y > get_viewport_rect().size.y+64:
-			queue_free()
+		WAITING_FOOD:
+			patience -= delta
+			patience_bar.value = patience
+			if patience < 0:
+				leave()
+			elif patience < 2:
+				infuriate()
+	
+		EATING:
+			patience -= delta
+			if patience < 0:
+				table.dirty = true
+				table.money = 10
+				get_parent().get_parent().happy_customers += 1
+				leave()
+	
+		LEAVING:
+			if position.y > get_viewport_rect().size.y+64:
+				queue_free()
 
 func infuriate() -> void:
-	if angry: 
-		return
+	if angry: return
 	angry = true
 
 func leave() -> void:
-	if status == LEAVING:
-		return
-	patience_bar.hide()
+	if status == LEAVING: return
+	
 	status = LEAVING
 	table.customer = null
 	table = null
-	if not angry:
-		Global.player_money+=10
 
 func move_along_path(distance:float) -> void:
 	var start_point:Vector2 = position
@@ -79,6 +95,7 @@ func move_along_path(distance:float) -> void:
 			position = path[0]
 			isMoving = false
 			status = WAITING_MENU
+			patience_bar.show()
 			break
 		distance -= distance_to_next
 		start_point = path[0]
@@ -90,9 +107,25 @@ func set_path(value:PoolVector2Array) -> void:
 	if value.size() == 0: return
 
 func receive_waiter() -> void:
-	if status == WAITING_MENU:
-		patience = Global.patience
-		status = DECIDING_FOOD
-	elif status == WAITING_FOOD:
-		patience = Global.patience
-		status = EATING
+	match status:
+		WAITING_MENU:
+			patience_bar.hide()
+			patience = rand_range(5, Global.patience)
+			status = DECIDING_FOOD
+	
+		WAITING_TO_ORDER:
+			desired_food = rand_range(0,9)
+			player.add_order(desired_food)
+			status = WAITING_FOOD
+			patience = Global.patience + 10
+			patience_bar.show()
+			
+		WAITING_FOOD:
+			if player.hands.index == desired_food:
+				var food = player.hands
+				player.remove_child(food)
+				table.add_child(food)
+				player.hands = null
+				patience_bar.value = Global.patience
+				patience_bar.hide()
+				status = EATING

@@ -55,3 +55,17 @@ script = ExtResource( 3 )
 
 [node name="Collision" type="CollisionShape2D" parent="Shape"]
 shape = SubResource( 3 )
+
+[node name="Order" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -50 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Order"]
+margin_left = 30.9635
+margin_top = 5.27038
+margin_right = 39.9635
+margin_bottom = 19.2704
+rect_scale = Vector2( 2, 2 )
+text = "1"

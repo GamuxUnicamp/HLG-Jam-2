@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Table.gd" type="Script" id=1]
 [ext_resource path="res://resource/mesa.png" type="Texture" id=2]
 [ext_resource path="res://scripts/duplicate_material.gd" type="Script" id=3]
+[ext_resource path="res://resource/cadeiras.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 176.28, 95.2328 )
+extents = Vector2( 188.681, 104.079 )
 
 [sub_resource type="Shader" id=2]
 resource_local_to_scene = true
@@ -43,7 +44,7 @@ shader_param/outline_color = Color( 0, 0, 1, 1 )
 [node name="Table" type="Area2D" groups=[
 "table",
 ]]
-scale = Vector2( 2.5, 2.5 )
+scale = Vector2( 0.6, 0.6 )
 script = ExtResource( 1 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -54,3 +55,14 @@ material = SubResource( 3 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
+
+[node name="Chair" type="Sprite" parent="."]
+position = Vector2( 244.959, 16.7018 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+
+[node name="Chair2" type="Sprite" parent="."]
+position = Vector2( -247.743, 13.9182 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+flip_h = true

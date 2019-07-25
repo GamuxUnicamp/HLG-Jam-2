@@ -5,8 +5,10 @@ extends Node2D
 
 var path := PoolVector2Array() setget set_path
 var isMoving:bool = false
-var interactions:Array
-
+var interactions:Array = []
+var orders:Array = []
+onready var orders_node = $Order
+var hands = null
 var profit = 0
 
 func _ready() -> void:
@@ -40,3 +42,25 @@ func set_path(value:PoolVector2Array) -> void:
 	# avoid setting process to true on initializing
 	if value.size() == 0: return
 	set_process(true)
+
+func add_order(food_index:int) -> void:
+	if orders.size() == 0:
+		orders_node.show()
+		orders_node.get_node('Label').text = str(1)
+	else:
+		var orders_number = int(orders_node.get_node('Label').value)
+		orders_node.get_node('Label').text = str(orders_number + 1)
+	
+	orders.append(food_index)
+
+func remove_order() -> int:
+	var order = orders.front()
+	orders.erase(order)
+	
+	if orders.size() == 0:
+		orders_node.hide()
+	else:
+		var orders_number = int(orders_node.get_node('Label').value)
+		orders_node.get_node('Label').text = str(orders_number - 1)
+	
+	return order
