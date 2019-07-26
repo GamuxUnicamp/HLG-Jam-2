@@ -81,7 +81,7 @@ func leave() -> void:
 	if status == LEAVING: return
 	
 	status = LEAVING
-	table.customer = null
+	if table.customer: table.customer = null
 	table = null
 
 func move_along_path(distance:float) -> void:
