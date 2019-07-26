@@ -4,7 +4,7 @@
 extends Node2D
 
 var path := PoolVector2Array() setget set_path
-var isMoving:bool = false
+var moving:bool = false
 var interactions:Array = []
 var orders:Array = []
 onready var orders_node = $Order
@@ -20,7 +20,7 @@ func _process(delta:float) -> void:
 
 func move_along_path(distance:float) -> void:
 	var start_point:Vector2 = position
-	isMoving = true
+	moving = true
 	
 	for i in range(path.size()): # loop through all path points
 		var distance_to_next:float = start_point.distance_to(path[0])
@@ -30,7 +30,8 @@ func move_along_path(distance:float) -> void:
 		elif path.size() == 1: # when player reaches the target
 			position = path[0]
 			set_process(false)
-			isMoving = false
+			$AnimatedSprite.play('Idle Side')
+			moving = false
 			break
 		distance -= distance_to_next
 		start_point = path[0]

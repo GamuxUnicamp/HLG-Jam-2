@@ -43,7 +43,13 @@ func player_movement() -> void:
 	else:
 		target = navigation.get_simple_path(player.global_position, get_global_mouse_position(), false)
 	
-	if player.isMoving: return
+	if target[0].x < target[1].x:
+		$Player/AnimatedSprite.flip_h = false
+	else:
+		$Player/AnimatedSprite.flip_h = true
+	$Player/AnimatedSprite.play('Walking Side')
+	
+	if player.moving: return
 	
 	path_line.points = target
 	player.path = target
