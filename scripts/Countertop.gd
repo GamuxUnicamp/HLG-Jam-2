@@ -56,7 +56,8 @@ func _on_area_enter(area):
 					slot.remove_child(food)
 					player.add_child(food)
 					player.hands = food
-					food.set_global_position(player.get_global_position() + Vector2(64,0))
+					food.set_global_position(player.get_global_position() + Vector2(56,-12))
+					if player.get_node('AnimatedSprite').flip_h: food.global_position.x = -abs(food.global_position.x)
 					busy_slots -= 1
 					slot.hide()
 					break

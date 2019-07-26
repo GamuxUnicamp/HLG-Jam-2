@@ -45,8 +45,12 @@ func player_movement() -> void:
 	
 	if target[0].x < target[1].x:
 		$Player/AnimatedSprite.flip_h = false
+		if player.hands:
+			player.hands.position.x = abs(player.hands.position.x)
 	else:
 		$Player/AnimatedSprite.flip_h = true
+		if player.hands:
+			player.hands.position.x = -abs(player.hands.position.x)
 	$Player/AnimatedSprite.play('Walking Side')
 	
 	if player.moving: return
