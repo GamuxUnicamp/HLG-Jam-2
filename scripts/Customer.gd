@@ -43,6 +43,7 @@ func _process(delta:float) -> void:
 			if patience < 0:
 				status = WAITING_TO_ORDER
 				patience = Global.patience
+				patience_bar.texture_progress = load("res://resource/pedido-papel.png")
 				patience_bar.show()
 	
 		WAITING_TO_ORDER:
@@ -81,7 +82,7 @@ func leave() -> void:
 	if status == LEAVING: return
 	
 	status = LEAVING
-	if table.customer: table.customer = null
+	if table and table.customer: table.customer = null
 	table = null
 
 func move_along_path(distance:float) -> void:
@@ -114,10 +115,11 @@ func receive_waiter() -> void:
 			status = DECIDING_FOOD
 	
 		WAITING_TO_ORDER:
-			desired_food = rand_range(0,9)
+			desired_food = rand_range(1,7)
 			player.add_order(desired_food)
 			status = WAITING_FOOD
 			patience = Global.patience + 10
+			patience_bar.texture_progress = load("res://resource/comida"+str(desired_food)+".png")
 			patience_bar.show()
 			
 		WAITING_FOOD:

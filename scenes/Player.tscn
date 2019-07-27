@@ -7,7 +7,7 @@
 [ext_resource path="res://resource/andando-direita-3.png" type="Texture" id=5]
 [ext_resource path="res://resource/andando-direita-4.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Player_Shape.gd" type="Script" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://resource/pedido-papel.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -44,14 +44,14 @@ shape = SubResource( 2 )
 
 [node name="Order" type="Sprite" parent="."]
 visible = false
-position = Vector2( -1.16638, -166.787 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( -0.0307578, -168.505 )
+scale = Vector2( 0.288079, 0.285085 )
 texture = ExtResource( 8 )
 
 [node name="Label" type="Label" parent="Order"]
-margin_left = 30.9635
-margin_top = 5.27038
-margin_right = 39.9635
-margin_bottom = 19.2704
+margin_left = -9.47026
+margin_top = -126.197
+margin_right = -0.470264
+margin_bottom = -112.197
 rect_scale = Vector2( 2, 2 )
 text = "1"
