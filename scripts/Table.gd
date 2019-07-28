@@ -26,6 +26,11 @@ func _input(event):
 			player.interactions.push_back(self)
 
 func _on_area_enter(area):
+	if player.position.y > position.y:
+		set_z_index(0)
+	else:
+		set_z_index(2)
+		
 	if player.interactions.size() > 0 and player.interactions[0] == self:
 		player.interactions.pop_front()
 		get_node("Sprite").material.set_shader_param("width", 0)
