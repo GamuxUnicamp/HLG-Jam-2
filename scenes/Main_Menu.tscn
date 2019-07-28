@@ -39,21 +39,26 @@ text = "SAIR"
 visible = false
 margin_left = 68.0
 margin_top = 37.0
-margin_right = 1838.0
-margin_bottom = 1031.0
+margin_right = 517.0
+margin_bottom = 286.0
+rect_scale = Vector2( 4, 4 )
 
 [node name="CreditsText" type="Label" parent="CreditsPanel"]
 margin_left = 29.6099
 margin_top = 14.8049
 margin_right = 317.61
 margin_bottom = 250.805
-text = ">Carlos
+text = "Programadores:
+- Carlos
+- Alec
 
->Alec
+Artistas:
+- Ana
+- Arthur
 
->Ana
 
->Arthur"
+Agradecemos por jogar nosso jogo!
+Visite: www.gamux.com.br"
 
 [node name="CloseCreditsButton" type="Button" parent="CreditsPanel"]
 margin_left = 756.461
