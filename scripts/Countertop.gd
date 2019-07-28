@@ -34,18 +34,19 @@ func _on_area_enter(area):
 		player.interactions.pop_front()
 		get_node("Sprite").material.set_shader_param("width", 0)
 		
-		if busy_slots <= slots.get_child_count():
+		if busy_slots <= 5:
 			while player.orders.size() > 0:
 				for slot in slots.get_children():
 					if not slot.visible:
 						print(slot.name)
 						var food = food_node.instance()
-						food.index = player.remove_order()
+						food.set_sprite(player.remove_order())
 						slot.add_child(food)
 						food.hide()
 						busy_slots += 1
 						slot.max_value = rand_range(5,10)
 						slot.value = 0
+						slot.set_progress_texture(food.get_node('Food_sprite').get_texture())
 						slot.show()
 						break
 		

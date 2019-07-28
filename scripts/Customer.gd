@@ -3,7 +3,7 @@
 
 extends Node2D
 
-enum { WAITING_IN_LINE, GOING_TO_TABLE, WAITING_MENU,DECIDING_FOOD, WAITING_TO_ORDER, WAITING_FOOD, EATING, LEAVING }
+enum { WAITING_IN_LINE, GOING_TO_TABLE, WAITING_MENU, DECIDING_FOOD, WAITING_TO_ORDER, WAITING_FOOD, EATING, LEAVING }
 
 export var speed:float = 150
 var path := PoolVector2Array() setget set_path
@@ -115,7 +115,7 @@ func receive_waiter() -> void:
 			status = DECIDING_FOOD
 	
 		WAITING_TO_ORDER:
-			desired_food = rand_range(1,7)
+			desired_food = int(rand_range(1,7.99))
 			player.add_order(desired_food)
 			status = WAITING_FOOD
 			patience = Global.patience + 10

@@ -33,6 +33,7 @@ func _on_area_enter(area):
 			customer.receive_waiter()
 		elif dirty:
 			dirty = false
+			get_node('Food').queue_free()
 			Global.player_money += money
 			player.profit += money
 			money = 0

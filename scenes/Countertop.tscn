@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/Countertop.gd" type="Script" id=1]
 [ext_resource path="res://resource/sprite_outline.shader" type="Shader" id=2]
 [ext_resource path="res://resource/balcao-simples.png" type="Texture" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://resource/comida1.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 330, 60 )
@@ -25,14 +25,16 @@ scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
 
 [node name="Slots" type="Node2D" parent="."]
-scale = Vector2( 0.62, 0.62 )
+position = Vector2( -30, -20 )
 
 [node name="Slot_1" type="TextureProgress" parent="Slots"]
 visible = false
-margin_left = -516.667
+margin_left = -300.0
 margin_top = -50.0
-margin_right = -452.667
+margin_right = -236.0
 margin_bottom = 14.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 32, 32 )
 step = 0.01
 value = 100.0
 texture_progress = ExtResource( 4 )
@@ -40,10 +42,12 @@ fill_mode = 8
 
 [node name="Slot_2" type="TextureProgress" parent="Slots"]
 visible = false
-margin_left = -383.333
+margin_left = -166.666
 margin_top = -50.0
-margin_right = -319.333
+margin_right = -102.666
 margin_bottom = 14.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 32, 32 )
 step = 0.01
 value = 100.0
 texture_progress = ExtResource( 4 )
@@ -51,10 +55,12 @@ fill_mode = 8
 
 [node name="Slot_3" type="TextureProgress" parent="Slots"]
 visible = false
-margin_left = -250.0
+margin_left = -33.333
 margin_top = -50.0
-margin_right = -186.0
+margin_right = 30.667
 margin_bottom = 14.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 32, 32 )
 step = 0.01
 value = 100.0
 texture_progress = ExtResource( 4 )
@@ -62,10 +68,12 @@ fill_mode = 8
 
 [node name="Slot_4" type="TextureProgress" parent="Slots"]
 visible = false
-margin_left = -116.667
+margin_left = 100.0
 margin_top = -50.0
-margin_right = -52.6667
+margin_right = 164.0
 margin_bottom = 14.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 32, 32 )
 step = 0.01
 value = 100.0
 texture_progress = ExtResource( 4 )
@@ -73,43 +81,12 @@ fill_mode = 8
 
 [node name="Slot_5" type="TextureProgress" parent="Slots"]
 visible = false
-margin_left = 12.3375
+margin_left = 229.004
 margin_top = -50.0
-margin_right = 76.3375
+margin_right = 293.004
 margin_bottom = 14.0
-step = 0.01
-value = 100.0
-texture_progress = ExtResource( 4 )
-fill_mode = 8
-
-[node name="Slot_6" type="TextureProgress" parent="Slots"]
-visible = false
-margin_left = 150.0
-margin_top = -50.0
-margin_right = 214.0
-margin_bottom = 14.0
-step = 0.01
-value = 100.0
-texture_progress = ExtResource( 4 )
-fill_mode = 8
-
-[node name="Slot_7" type="TextureProgress" parent="Slots"]
-visible = false
-margin_left = 283.333
-margin_top = -50.0
-margin_right = 347.333
-margin_bottom = 14.0
-step = 0.01
-value = 100.0
-texture_progress = ExtResource( 4 )
-fill_mode = 8
-
-[node name="Slot_8" type="TextureProgress" parent="Slots"]
-visible = false
-margin_left = 416.667
-margin_top = -50.0
-margin_right = 480.667
-margin_bottom = 14.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 32, 32 )
 step = 0.01
 value = 100.0
 texture_progress = ExtResource( 4 )
