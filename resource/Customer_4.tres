@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=2]
+
+[ext_resource path="res://resource/cliente4/andando-direita-1.png" type="Texture" id=1]
+[ext_resource path="res://resource/cliente4/andando-direita-2.png" type="Texture" id=2]
+[ext_resource path="res://resource/cliente4/sentado-direita.png" type="Texture" id=3]
+[ext_resource path="res://resource/cliente4/parado-direita.png" type="Texture" id=4]
+[ext_resource path="res://resource/cliente4/sentado-direita-cardapio.png" type="Texture" id=5]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Sit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Menu",
+"speed": 5.0
+} ]

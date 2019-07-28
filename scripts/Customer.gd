@@ -20,6 +20,7 @@ var status:int = WAITING_IN_LINE
 var desired_food:int
 
 func _ready() -> void:
+	$AnimatedSprite.set_sprite_frames(load('res://resource/Customer_'+str(int(rand_range(1,5.99)))+'.tres'))
 	patience_bar.max_value = patience
 	patience_bar.value = patience
 	patience_bar.hide()
