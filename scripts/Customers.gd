@@ -1,6 +1,6 @@
 extends Node
 
-export var randomness:float = 8
+export var randomness:float = 5
 
 var customer_node:PackedScene = preload('res://scenes/Customer.tscn')
 onready var tables:Node = get_parent().get_node('Tables')
