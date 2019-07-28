@@ -11,7 +11,7 @@ extents = Vector2( 330, 60 )
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 2 )
 shader_param/width = null
-shader_param/outline_color = null
+shader_param/outline_color = Color( 0, 1, 0, 1 )
 
 [node name="Countertop" type="Area2D"]
 script = ExtResource( 1 )
