@@ -96,7 +96,7 @@ func end_day() -> void:
 	var summary = summary_node.instance()
 	summary.initialize(player.profit, customers.count, happy_customers)
 	add_child(summary)
-	
+	$AudioStreamPlayer.stop()
 	player.hide()
 	tables.hide()
 	customers.hide()
