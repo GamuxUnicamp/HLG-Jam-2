@@ -11,7 +11,8 @@ func _ready():
 	get_node("CreditsPanel/CloseCreditsButton").connect("button_down",self,"close_credits_button")
 
 func play_button_down():
-	get_tree().change_scene("res://scenes/Restaurant.tscn")
+	yield(get_tree().create_timer(0.1), 'timeout')
+	get_tree().change_scene("res://scenes/Intro.tscn")
 
 func credits_button_down():
 	credits_panel.visible = true

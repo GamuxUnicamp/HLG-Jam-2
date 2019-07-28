@@ -108,6 +108,10 @@ func end_day() -> void:
 	customers.hide()
 
 func next_day() -> void:
+	if Global.day == 7:
+		yield(get_tree().create_timer(0.1), 'timeout')
+		get_tree().change_scene("res://scenes/Ending.tscn")
+	
 	Global.day += 1
 	
 	Global.patience -= 5
