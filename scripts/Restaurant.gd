@@ -9,6 +9,7 @@ onready var customers = $Customers
 onready var tables = $Tables
 
 export var working_time = 10
+var stuck_time = 0
 
 var summary_node:PackedScene = preload('res://scenes/Summary.tscn')
 
@@ -23,14 +24,14 @@ func _ready() -> void:
 # _unhandled_input ignores user interface events
 func _process(delta:float) -> void:
 	time += delta
-	player_movement()
+	player_movement(delta)
 	customer_movement()
 	if time > working_time:
 		customers.set_process(false)
 		if customers.get_children() == []:
 			end_day()
 	
-func player_movement() -> void:
+func player_movement(delta:float) -> void:
 		# function pre-requisites
 	if player.interactions.size() == 0:
 		if not Input.is_action_just_pressed('click'):
@@ -38,9 +39,20 @@ func player_movement() -> void:
 	
 	var target:PoolVector2Array
 	if player.interactions.size() > 0:
-		target = navigation.get_simple_path(player.global_position, player.interactions[0].global_position, false)
+		target = navigation.get_simple_path(player.global_position, player.interactions[0].global_position + Vector2(0,-100))
 	else:
 		target = navigation.get_simple_path(player.global_position, get_global_mouse_position(), false)
+	
+	if target.size() == 2:
+		if target[0].distance_to(target[1]) < 4:
+			stuck_time += delta
+			if stuck_time > 0.1:
+				player.interactions.pop_front()
+				player.set_process(false)
+				player.get_node('AnimatedSprite').play('Idle Side')
+				player.moving = false
+				stuck_time = 0
+				return
 	
 	if target[0].x < target[1].x:
 		$Player/AnimatedSprite.flip_h = false

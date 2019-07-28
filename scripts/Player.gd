@@ -28,7 +28,6 @@ func move_along_path(distance:float) -> void:
 			position = start_point.linear_interpolate(path[0], distance / distance_to_next)
 			break
 		elif path.size() == 1: # when player reaches the target
-			position = path[0]
 			set_process(false)
 			$AnimatedSprite.play('Idle Side')
 			moving = false
