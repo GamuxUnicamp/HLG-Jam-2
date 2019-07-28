@@ -1,38 +1,29 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/Main_Menu.gd" type="Script" id=1]
-[ext_resource path="res://resource/black.jpg" type="Texture" id=2]
+[ext_resource path="res://resource/pintura-menu.png" type="Texture" id=2]
 
 [node name="Main_Menu" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( -3.4248, -3.4248 )
-scale = Vector2( 1.34017, 0.424166 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="GameName" type="Label" parent="."]
-margin_left = 697.007
-margin_top = 257.088
-margin_right = 826.007
-margin_bottom = 275.088
-rect_scale = Vector2( 4, 4 )
-text = "(Nome do jogo aqui)"
-
 [node name="PlayButton" type="Button" parent="."]
-margin_left = 807.543
-margin_top = 566.044
-margin_right = 939.543
-margin_bottom = 609.044
+margin_left = 808.0
+margin_top = 566.0
+margin_right = 940.0
+margin_bottom = 607.0
 rect_scale = Vector2( 2.32, 2.32 )
 text = "PLAY"
 
 [node name="CreditsButton" type="Button" parent="."]
-margin_left = 807.543
-margin_top = 693.675
-margin_right = 939.543
-margin_bottom = 736.675
+margin_left = 804.753
+margin_top = 685.306
+margin_right = 936.753
+margin_bottom = 728.306
 rect_scale = Vector2( 2.32, 2.32 )
 text = "CRÉDITOS"
 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Summary.gd" type="Script" id=1]
 [ext_resource path="res://resource/black.jpg" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://resource/upgrade-sapatos.png" type="Texture" id=3]
+[ext_resource path="res://resource/upgrade-etiqueta.png" type="Texture" id=4]
+[ext_resource path="res://resource/upgrade-orelhas.png" type="Texture" id=5]
+[ext_resource path="res://resource/jogo-gamux.png" type="Texture" id=6]
 
 [node name="Shop" type="Node2D"]
 position = Vector2( 0, -1090 )
@@ -135,7 +138,7 @@ rect_scale = Vector2( 4, 4 )
 
 [node name="Sprite" type="Sprite" parent="Shop/Shoes"]
 position = Vector2( 122, 388 )
-scale = Vector2( 3, 3 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 
 [node name="Title" type="Label" parent="Shop/Shoes"]
@@ -169,7 +172,6 @@ align = 1
 valign = 1
 
 [node name="Etiquette" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 32, 368 )
 
 [node name="Button" type="Button" parent="Shop/Etiquette"]
@@ -180,8 +182,8 @@ rect_scale = Vector2( 4, 4 )
 
 [node name="Sprite" type="Sprite" parent="Shop/Etiquette"]
 position = Vector2( 122, 388 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
 
 [node name="Title" type="Label" parent="Shop/Etiquette"]
 margin_left = 230.0
@@ -214,7 +216,6 @@ align = 1
 valign = 1
 
 [node name="Cat_Ears" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 962, 68 )
 
 [node name="Button" type="Button" parent="Shop/Cat_Ears"]
@@ -225,8 +226,8 @@ rect_scale = Vector2( 4, 4 )
 
 [node name="Sprite" type="Sprite" parent="Shop/Cat_Ears"]
 position = Vector2( 122, 388 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
 
 [node name="Title" type="Label" parent="Shop/Cat_Ears"]
 margin_left = 230.0
@@ -259,7 +260,6 @@ align = 1
 valign = 1
 
 [node name="Game" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 962, 368 )
 
 [node name="Button" type="Button" parent="Shop/Game"]
@@ -270,8 +270,8 @@ rect_scale = Vector2( 4, 4 )
 
 [node name="Sprite" type="Sprite" parent="Shop/Game"]
 position = Vector2( 122, 388 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
 
 [node name="Title" type="Label" parent="Shop/Game"]
 margin_left = 230.0
@@ -279,7 +279,7 @@ margin_top = 300.0
 margin_right = 385.0
 margin_bottom = 323.0
 rect_scale = Vector2( 4, 4 )
-text = "<nome do jogo>"
+text = "Gamux of the Night"
 align = 1
 valign = 1
 
