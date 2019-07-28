@@ -4,7 +4,6 @@
 extends Node2D
 
 onready var navigation:Navigation2D = $Navigation
-onready var path_line:Line2D = $Path
 onready var player = $Player
 onready var customers = $Customers
 onready var tables = $Tables
@@ -55,7 +54,6 @@ func player_movement() -> void:
 	
 	if player.moving: return
 	
-	path_line.points = target
 	player.path = target
 
 func customer_movement() -> void:
