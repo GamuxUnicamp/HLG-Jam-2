@@ -46,6 +46,7 @@ func _on_area_enter(area):
 						busy_slots += 1
 						slot.max_value = rand_range(5,10)
 						slot.value = 0
+						slot.texture_progress = load("res://resource/comida"+str(food.index)+".png")
 						slot.show()
 						break
 		

@@ -13,6 +13,7 @@ func _ready():
 	get_node('Shop/Etiquette/Button').connect('button_down', self, 'buy_etiquette')
 	get_node('Shop/Cat_Ears/Button').connect('button_down', self, 'buy_cat_ears')
 	
+	get_node('Shop/Game/Price').text = '$'+str(Global.player_money+1)
 	go_down() # start animation
 
 # update money every frame
