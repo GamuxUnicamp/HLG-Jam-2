@@ -91,3 +91,6 @@ step = 0.01
 value = 100.0
 texture_progress = ExtResource( 4 )
 fill_mode = 8
+
+[node name="Slot_6" type="TextureProgress" parent="Slots"]
+visible = false

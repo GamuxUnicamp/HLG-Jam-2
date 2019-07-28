@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Main_Menu.gd" type="Script" id=1]
 [ext_resource path="res://resource/pintura-menu.png" type="Texture" id=2]
+[ext_resource path="res://resource/botoes-menu-jogar.png" type="Texture" id=3]
+[ext_resource path="res://resource/botoes-menu-jogar-2.png" type="Texture" id=4]
+[ext_resource path="res://resource/botoes-menu-creditos.png" type="Texture" id=5]
+[ext_resource path="res://resource/botoes-menu-creditos-2.png" type="Texture" id=6]
+[ext_resource path="res://resource/botoes-menu-sair.png" type="Texture" id=7]
+[ext_resource path="res://resource/botoes-menu-sair-2.png" type="Texture" id=8]
+[ext_resource path="res://resource/logotipo.png" type="Texture" id=9]
 
 [node name="Main_Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,29 +18,60 @@ position = Vector2( -3.4248, -3.4248 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="PlayButton" type="Button" parent="."]
-margin_left = 808.0
-margin_top = 566.0
-margin_right = 940.0
-margin_bottom = 607.0
+[node name="PlayButton1" type="Button" parent="."]
+margin_left = 1583.25
+margin_top = 710.0
+margin_right = 1715.25
+margin_bottom = 751.0
 rect_scale = Vector2( 2.32, 2.32 )
-text = "PLAY"
+text = "JOGAR"
 
-[node name="CreditsButton" type="Button" parent="."]
-margin_left = 804.753
-margin_top = 685.306
-margin_right = 936.753
-margin_bottom = 728.306
+[node name="PlayButton" type="TextureButton" parent="."]
+margin_left = 310.0
+margin_top = 829.306
+margin_right = 822.0
+margin_bottom = 1129.31
+rect_scale = Vector2( 0.75, 0.75 )
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+
+[node name="CreditsButton" type="TextureButton" parent="."]
+margin_left = 710.0
+margin_top = 830.0
+margin_right = 1222.0
+margin_bottom = 1130.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 1110.0
+margin_top = 830.0
+margin_right = 1622.0
+margin_bottom = 1130.0
+rect_scale = Vector2( 0.75, 0.75 )
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+
+[node name="CreditsButton1" type="Button" parent="."]
+margin_left = 1580.0
+margin_top = 829.306
+margin_right = 1712.0
+margin_bottom = 872.306
 rect_scale = Vector2( 2.32, 2.32 )
 text = "CRÉDITOS"
 
-[node name="ExitButton" type="Button" parent="."]
-margin_left = 809.815
-margin_top = 825.728
-margin_right = 941.815
-margin_bottom = 868.728
+[node name="ExitButton1" type="Button" parent="."]
+margin_left = 1580.0
+margin_top = 950.0
+margin_right = 1712.0
+margin_bottom = 993.0
 rect_scale = Vector2( 2.32, 2.32 )
 text = "SAIR"
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 1670, 270 )
+texture = ExtResource( 9 )
 
 [node name="CreditsPanel" type="Panel" parent="."]
 visible = false
@@ -61,8 +99,8 @@ Agradecemos por jogar nosso jogo!
 Visite: www.gamux.com.br"
 
 [node name="CloseCreditsButton" type="Button" parent="CreditsPanel"]
-margin_left = 756.461
-margin_top = 932.4
-margin_right = 1006.46
-margin_bottom = 969.4
-text = "CLOSE"
+margin_left = 321.0
+margin_top = 218.0
+margin_right = 438.0
+margin_bottom = 243.0
+text = "FECHAR"
