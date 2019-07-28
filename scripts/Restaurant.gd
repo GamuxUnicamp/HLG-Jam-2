@@ -74,21 +74,27 @@ func customer_movement() -> void:
 			var table = tables.get_available_table()
 			if table != null:
 				customers.line = false
-				customer.isMoving = true
+				customer.moving = true
 				customer.status = customer.GOING_TO_TABLE
 				customer.table = table
 				table.customer = customer
-				customer.path = navigation.get_simple_path(customer.global_position, table.global_position, false)
+				customer.path = navigation.get_simple_path(customer.global_position, table.global_position + Vector2(-128,0))
 				break
 			
 			elif customers.line:
-				customer.isMoving = true
-				customer.path = navigation.get_simple_path(customer.global_position, Vector2(390,1060), false)
+				customer.moving = true
+				customer.path = navigation.get_simple_path(customer.global_position, Vector2(390,1060))
 				break
 		
 		elif customer.status == customer.LEAVING:
-			customer.isMoving = true
-			customer.path = navigation.get_simple_path(customer.global_position, Vector2(390,1150), false)
+			customer.moving = true
+			customer.path = navigation.get_simple_path(customer.global_position, Vector2(390,1150))
+		
+		if customer.path.size() > 1:
+			if customer.path[0].x < customer.path[1].x:
+				customer.get_node('AnimatedSprite').flip_h = false
+			else:
+				customer.get_node('AnimatedSprite').flip_h = true
 
 func end_day() -> void:
 	set_process(false)

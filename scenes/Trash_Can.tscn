@@ -2,10 +2,10 @@
 
 [ext_resource path="res://scripts/Trash_Can.gd" type="Script" id=1]
 [ext_resource path="res://resource/sprite_outline.shader" type="Shader" id=2]
-[ext_resource path="res://resource/cadeiras-branco.png" type="Texture" id=3]
+[ext_resource path="res://resource/lixeira.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 60 )
+extents = Vector2( 30, 40 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 2 )
@@ -20,5 +20,5 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 2 )
-scale = Vector2( 0.15, 0.15 )
+scale = Vector2( 0.075, 0.075 )
 texture = ExtResource( 3 )

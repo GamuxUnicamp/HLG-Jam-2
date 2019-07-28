@@ -51,7 +51,7 @@ position = Vector2( 1492.7, 810 )
 position = Vector2( 1492.7, 544.063 )
 
 [node name="Trash_Can" parent="." instance=ExtResource( 7 )]
-position = Vector2( 100, 410 )
+position = Vector2( 100, 400 )
 
 [node name="Customers" type="Node2D" parent="."]
 script = ExtResource( 8 )

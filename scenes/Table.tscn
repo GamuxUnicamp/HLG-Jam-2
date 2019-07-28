@@ -57,12 +57,12 @@ texture = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="Chair" type="Sprite" parent="."]
-position = Vector2( 145.885, 0 )
+position = Vector2( 175, 0 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 4 )
 
 [node name="Chair2" type="Sprite" parent="."]
-position = Vector2( -144.696, 0 )
+position = Vector2( -170, 0 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 4 )
 flip_h = true
