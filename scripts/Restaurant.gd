@@ -8,7 +8,7 @@ onready var player = $Player
 onready var customers = $Customers
 onready var tables = $Tables
 
-export var working_time = 10
+export var working_time = 120
 var stuck_time = 0
 
 var summary_node:PackedScene = preload('res://scenes/Summary.tscn')
@@ -103,6 +103,9 @@ func end_day() -> void:
 
 func next_day() -> void:
 	Global.day += 1
+	
+	Global.patience -= 4
+	Global.spawn_delay -= 2
 	
 	player.show()
 	tables.show()

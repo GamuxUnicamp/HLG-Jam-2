@@ -4,10 +4,6 @@ onready var player = get_tree().get_root().find_node("Player", true, false)
 
 var mouse_over:bool = false
 
-var customer:Area2D
-var dirty:bool = false
-var money:int
-
 func _ready():
 	set_process(false)
 	connect("area_entered", self, "_on_area_enter")
@@ -29,14 +25,11 @@ func _on_area_enter(area):
 	if player.interactions.size() > 0 and player.interactions[0] == self:
 		player.interactions.pop_front()
 		get_node("Sprite").material.set_shader_param("width", 0)
-		if customer:
-			customer.receive_waiter()
-		elif dirty:
-			dirty = false
-			get_node('Food').queue_free()
-			Global.player_money += money
-			player.profit += money
-			money = 0
+		
+		if player.hands:
+			player.get_node('Food').queue_free()
+			player.hands = null
+
 
 func _on_mouse_enter():
 	set_process(true)

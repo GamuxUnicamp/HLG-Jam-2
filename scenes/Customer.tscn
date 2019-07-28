@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Customer.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Patience_bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resource/pedido-papel.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -18,9 +19,11 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Patience_bar" parent="." instance=ExtResource( 3 )]
-margin_left = 20.0
+margin_left = 5.0
 margin_top = -60.0
-margin_right = 84.0
-margin_bottom = 4.0
+margin_right = 205.0
+margin_bottom = 140.0
 rect_rotation = 0.0179035
+rect_scale = Vector2( 0.15, 0.15 )
+texture_progress = ExtResource( 4 )
 fill_mode = 4

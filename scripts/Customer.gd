@@ -3,7 +3,7 @@
 
 extends Node2D
 
-enum { WAITING_IN_LINE, GOING_TO_TABLE, WAITING_MENU,DECIDING_FOOD, WAITING_TO_ORDER, WAITING_FOOD, EATING, LEAVING }
+enum { WAITING_IN_LINE, GOING_TO_TABLE, WAITING_MENU, DECIDING_FOOD, WAITING_TO_ORDER, WAITING_FOOD, EATING, LEAVING }
 
 export var speed:float = 150
 var path := PoolVector2Array() setget set_path
@@ -66,7 +66,7 @@ func _process(delta:float) -> void:
 			patience -= delta
 			if patience < 0:
 				table.dirty = true
-				table.money = 10
+				table.money = int(rand_range(10,21))
 				get_parent().get_parent().happy_customers += 1
 				leave()
 	
@@ -111,15 +111,16 @@ func receive_waiter() -> void:
 	match status:
 		WAITING_MENU:
 			patience_bar.hide()
-			patience = rand_range(5, Global.patience)
+			patience = rand_range(4, 15)
 			status = DECIDING_FOOD
 	
 		WAITING_TO_ORDER:
-			desired_food = rand_range(1,7)
+			desired_food = int(rand_range(1,7.99))
 			player.add_order(desired_food)
 			status = WAITING_FOOD
-			patience = Global.patience + 10
+			patience = Global.patience + 20
 			patience_bar.texture_progress = load("res://resource/comida"+str(desired_food)+".png")
+			patience_bar.max_value = patience
 			patience_bar.show()
 			
 		WAITING_FOOD:
@@ -128,6 +129,7 @@ func receive_waiter() -> void:
 				player.remove_child(food)
 				table.add_child(food)
 				player.hands = null
-				patience_bar.value = Global.patience
+				patience = rand_range(10,30)
+				patience_bar.value = patience
 				patience_bar.hide()
 				status = EATING
