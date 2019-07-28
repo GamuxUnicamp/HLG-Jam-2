@@ -41,7 +41,7 @@ func player_movement(delta:float) -> void:
 	if player.interactions.size() > 0:
 		target = navigation.get_simple_path(player.global_position, player.interactions[0].global_position + Vector2(0,-100))
 	else:
-		target = navigation.get_simple_path(player.global_position, get_global_mouse_position(), false)
+		target = navigation.get_simple_path(player.global_position, get_global_mouse_position())
 	
 	if target.size() == 2:
 		if target[0].distance_to(target[1]) < 4:
