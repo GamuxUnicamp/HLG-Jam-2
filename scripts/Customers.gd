@@ -1,6 +1,6 @@
 extends Node
 
-export var randomness:float = 2
+export var randomness:float = 8
 
 var customer_node:PackedScene = preload('res://scenes/Customer.tscn')
 onready var tables:Node = get_parent().get_node('Tables')
@@ -28,7 +28,6 @@ func spawn() -> void:
 	while tables.get_available_table() == null:
 		if not line:
 			line = true
-			break
 		else:
 			yield(get_tree().create_timer(1), "timeout")
 	

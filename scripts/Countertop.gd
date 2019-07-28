@@ -44,7 +44,7 @@ func _on_area_enter(area):
 						slot.add_child(food)
 						food.hide()
 						busy_slots += 1
-						slot.max_value = rand_range(5,10)
+						slot.max_value = rand_range(8,20)
 						slot.value = 0
 						slot.set_progress_texture(food.get_node('Food_sprite').get_texture())
 						slot.show()

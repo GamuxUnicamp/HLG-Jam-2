@@ -1,8 +1,8 @@
 extends Node
 
 var day:int = 1
-var spawn_delay:float = 2
-var patience:float = 15
+var spawn_delay:float = 25
+var patience:float = 30
 
 var player_speed:float = 250
-var player_money:int = 500
+var player_money:int = 0
