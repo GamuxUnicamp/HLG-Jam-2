@@ -23,7 +23,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 84.3, 137.687 )
+extents = Vector2( 84.3, 64.3502 )
 
 [node name="Player" type="Node2D" groups=[
 "player",
