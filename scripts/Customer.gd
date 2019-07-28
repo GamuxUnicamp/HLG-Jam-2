@@ -67,6 +67,7 @@ func _process(delta:float) -> void:
 			if patience < 0:
 				table.dirty = true
 				table.money = int(rand_range(10,21))
+				table.get_node('Food').get_node('Food_sprite').hide()
 				get_parent().get_parent().happy_customers += 1
 				leave()
 	

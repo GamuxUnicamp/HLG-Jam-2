@@ -46,7 +46,6 @@ shape = SubResource( 1 )
 scale = Vector2( 0.333, 0.333 )
 frames = SubResource( 2 )
 animation = "Walking"
-frame = 1
 playing = true
 
 [node name="Patience_bar" parent="." instance=ExtResource( 7 )]
