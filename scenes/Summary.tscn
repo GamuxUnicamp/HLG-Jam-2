@@ -179,7 +179,6 @@ align = 1
 valign = 1
 
 [node name="Etiquette" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 32, 368 )
 
 [node name="Button" type="Button" parent="Shop/Etiquette"]
@@ -224,7 +223,6 @@ align = 1
 valign = 1
 
 [node name="Cat_Ears" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 962, 68 )
 
 [node name="Button" type="Button" parent="Shop/Cat_Ears"]
@@ -269,7 +267,6 @@ align = 1
 valign = 1
 
 [node name="Game" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 962, 368 )
 
 [node name="Button" type="Button" parent="Shop/Game"]

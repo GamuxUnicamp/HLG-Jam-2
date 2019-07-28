@@ -55,8 +55,8 @@ position = Vector2( 1516.7, 853 )
 [node name="Table_6" parent="Tables" instance=ExtResource( 7 )]
 position = Vector2( 1516.7, 587.063 )
 
-[node name="Trash_Can" parent="." instance=ExtResource( 8 )]
-position = Vector2( 100, 410 )
+[node name="Trash_Can" parent="." instance=ExtResource( 7 )]
+position = Vector2( 100, 400 )
 
 [node name="Customers" type="Node2D" parent="."]
 script = ExtResource( 9 )

@@ -13,18 +13,18 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="PlayButton" type="Button" parent="."]
-margin_left = 1580.0
-margin_top = 710.0
-margin_right = 1712.0
-margin_bottom = 753.0
+margin_left = 808.0
+margin_top = 566.0
+margin_right = 940.0
+margin_bottom = 607.0
 rect_scale = Vector2( 2.32, 2.32 )
 text = "JOGAR"
 
 [node name="CreditsButton" type="Button" parent="."]
-margin_left = 1580.0
-margin_top = 830.0
-margin_right = 1712.0
-margin_bottom = 873.0
+margin_left = 804.753
+margin_top = 685.306
+margin_right = 936.753
+margin_bottom = 728.306
 rect_scale = Vector2( 2.32, 2.32 )
 text = "CRÉDITOS"
 
@@ -38,24 +38,28 @@ text = "SAIR"
 
 [node name="CreditsPanel" type="Panel" parent="."]
 visible = false
-margin_left = 40.0
-margin_top = 20.0
-margin_right = 1880.0
-margin_bottom = 1050.0
+margin_left = 68.0
+margin_top = 37.0
+margin_right = 517.0
+margin_bottom = 286.0
+rect_scale = Vector2( 4, 4 )
 
 [node name="CreditsText" type="Label" parent="CreditsPanel"]
 margin_left = 29.6099
 margin_top = 14.8049
 margin_right = 317.61
 margin_bottom = 250.805
-rect_scale = Vector2( 2, 2 )
-text = ">Carlos
+text = "Programadores:
+- Carlos
+- Alec
 
->Alec
+Artistas:
+- Ana
+- Arthur
 
->Ana
 
->Arthur"
+Agradecemos por jogar nosso jogo!
+Visite: www.gamux.com.br"
 
 [node name="CloseCreditsButton" type="Button" parent="CreditsPanel"]
 margin_left = 730.0

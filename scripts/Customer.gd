@@ -7,7 +7,7 @@ enum { WAITING_IN_LINE, GOING_TO_TABLE, WAITING_MENU, DECIDING_FOOD, WAITING_TO_
 
 export var speed:float = 150
 var path := PoolVector2Array() setget set_path
-var isMoving:bool = false
+var moving:bool = false
 
 var angry:bool = false
 onready var patience:float = Global.patience
@@ -25,7 +25,7 @@ func _ready() -> void:
 	patience_bar.hide()
 
 func _process(delta:float) -> void:
-	if isMoving:
+	if moving:
 		var move_distance:float = speed * delta
 		move_along_path(move_distance)
 	
@@ -67,6 +67,7 @@ func _process(delta:float) -> void:
 			if patience < 0:
 				table.dirty = true
 				table.money = int(rand_range(10,21))
+				table.get_node('Food').get_node('Food_sprite').hide()
 				get_parent().get_parent().happy_customers += 1
 				leave()
 	
@@ -94,9 +95,10 @@ func move_along_path(distance:float) -> void:
 			break
 		elif path.size() == 1: # when reaches the target
 			position = path[0]
-			isMoving = false
+			moving = false
 			status = WAITING_MENU
 			patience_bar.show()
+			$AnimatedSprite.play('Sit')
 			break
 		distance -= distance_to_next
 		start_point = path[0]
@@ -113,6 +115,7 @@ func receive_waiter() -> void:
 			patience_bar.hide()
 			patience = rand_range(4, 15)
 			status = DECIDING_FOOD
+			$AnimatedSprite.play('Menu')
 	
 		WAITING_TO_ORDER:
 			desired_food = int(rand_range(1,7.99))
@@ -122,6 +125,7 @@ func receive_waiter() -> void:
 			patience_bar.texture_progress = load("res://resource/comida"+str(desired_food)+".png")
 			patience_bar.max_value = patience
 			patience_bar.show()
+			$AnimatedSprite.play('Sit')
 			
 		WAITING_FOOD:
 			if player.hands and player.hands.index == desired_food:
