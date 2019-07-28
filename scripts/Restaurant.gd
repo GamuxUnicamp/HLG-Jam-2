@@ -104,8 +104,8 @@ func end_day() -> void:
 func next_day() -> void:
 	Global.day += 1
 	
-	Global.patience -= 4
-	Global.spawn_delay -= 2
+	Global.patience -= 5
+	Global.spawn_delay -= 4
 	
 	player.show()
 	tables.show()
