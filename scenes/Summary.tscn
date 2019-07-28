@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Summary.gd" type="Script" id=1]
 [ext_resource path="res://resource/black.jpg" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://resource/upgrade-sapatos.png" type="Texture" id=3]
+[ext_resource path="res://resource/upgrade-etiqueta.png" type="Texture" id=4]
+[ext_resource path="res://resource/upgrade-orelhas.png" type="Texture" id=5]
+[ext_resource path="res://resource/jogo-gamux.png" type="Texture" id=6]
 
 [node name="Shop" type="Node2D"]
 position = Vector2( 0, -1090 )
@@ -128,21 +131,21 @@ valign = 1
 position = Vector2( 32, 68 )
 
 [node name="Button" type="Button" parent="Shop/Shoes"]
-margin_top = 270.0
+margin_top = 230.0
 margin_right = 215.0
-margin_bottom = 330.0
+margin_bottom = 300.0
 rect_scale = Vector2( 4, 4 )
 
 [node name="Sprite" type="Sprite" parent="Shop/Shoes"]
-position = Vector2( 122, 388 )
-scale = Vector2( 3, 3 )
+position = Vector2( 138, 370 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="Title" type="Label" parent="Shop/Shoes"]
-margin_left = 230.0
-margin_top = 300.0
-margin_right = 385.0
-margin_bottom = 323.0
+margin_left = 238.0
+margin_top = 250.0
+margin_right = 393.0
+margin_bottom = 273.0
 rect_scale = Vector2( 4, 4 )
 text = "Novos sapatos"
 align = 1
@@ -150,9 +153,9 @@ valign = 1
 
 [node name="Description" type="Label" parent="Shop/Shoes"]
 margin_left = 230.0
-margin_top = 362.0
+margin_top = 320.0
 margin_right = 437.0
-margin_bottom = 382.0
+margin_bottom = 340.0
 rect_scale = Vector2( 3, 3 )
 text = "Aumentam sua velocidade"
 align = 1
@@ -169,34 +172,33 @@ align = 1
 valign = 1
 
 [node name="Etiquette" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 32, 368 )
 
 [node name="Button" type="Button" parent="Shop/Etiquette"]
 margin_top = 270.0
 margin_right = 215.0
-margin_bottom = 330.0
+margin_bottom = 340.0
 rect_scale = Vector2( 4, 4 )
 
 [node name="Sprite" type="Sprite" parent="Shop/Etiquette"]
-position = Vector2( 122, 388 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+position = Vector2( 138, 410 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
 
 [node name="Title" type="Label" parent="Shop/Etiquette"]
-margin_left = 230.0
-margin_top = 300.0
-margin_right = 385.0
-margin_bottom = 323.0
+margin_left = 268.0
+margin_top = 290.0
+margin_right = 416.0
+margin_bottom = 313.0
 rect_scale = Vector2( 4, 4 )
 text = "Aulas de etiqueta"
 align = 1
 valign = 1
 
 [node name="Description" type="Label" parent="Shop/Etiquette"]
-margin_left = 230.0
+margin_left = 278.0
 margin_top = 362.0
-margin_right = 437.0
+margin_right = 469.0
 margin_bottom = 382.0
 rect_scale = Vector2( 3, 3 )
 text = "Clientes são mais pacientes"
@@ -204,45 +206,44 @@ align = 1
 valign = 1
 
 [node name="Price" type="Label" parent="Shop/Etiquette"]
-margin_left = 230.0
-margin_top = 422.0
-margin_right = 385.0
-margin_bottom = 442.0
+margin_left = 278.0
+margin_top = 450.0
+margin_right = 419.0
+margin_bottom = 470.0
 rect_scale = Vector2( 4, 4 )
 text = "$50"
 align = 1
 valign = 1
 
 [node name="Cat_Ears" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 962, 68 )
 
 [node name="Button" type="Button" parent="Shop/Cat_Ears"]
-margin_top = 270.0
+margin_top = 230.0
 margin_right = 215.0
-margin_bottom = 330.0
+margin_bottom = 300.0
 rect_scale = Vector2( 4, 4 )
 
 [node name="Sprite" type="Sprite" parent="Shop/Cat_Ears"]
-position = Vector2( 122, 388 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+position = Vector2( 138, 370 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
 
 [node name="Title" type="Label" parent="Shop/Cat_Ears"]
-margin_left = 230.0
-margin_top = 300.0
-margin_right = 385.0
-margin_bottom = 323.0
+margin_left = 278.0
+margin_top = 242.0
+margin_right = 421.0
+margin_bottom = 265.0
 rect_scale = Vector2( 4, 4 )
 text = "Orelhas de gato"
 align = 1
 valign = 1
 
 [node name="Description" type="Label" parent="Shop/Cat_Ears"]
-margin_left = 230.0
-margin_top = 362.0
-margin_right = 437.0
-margin_bottom = 382.0
+margin_left = 248.0
+margin_top = 330.0
+margin_right = 455.0
+margin_bottom = 350.0
 rect_scale = Vector2( 3, 3 )
 text = "Atrai mais clientes"
 align = 1
@@ -259,27 +260,27 @@ align = 1
 valign = 1
 
 [node name="Game" type="Node2D" parent="Shop"]
-editor/display_folded = true
 position = Vector2( 962, 368 )
 
 [node name="Button" type="Button" parent="Shop/Game"]
 margin_top = 270.0
 margin_right = 215.0
-margin_bottom = 330.0
+margin_bottom = 340.0
 rect_scale = Vector2( 4, 4 )
+disabled = true
 
 [node name="Sprite" type="Sprite" parent="Shop/Game"]
-position = Vector2( 122, 388 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+position = Vector2( 138, 410 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
 
 [node name="Title" type="Label" parent="Shop/Game"]
-margin_left = 230.0
-margin_top = 300.0
-margin_right = 385.0
-margin_bottom = 323.0
+margin_left = 278.0
+margin_top = 290.0
+margin_right = 419.0
+margin_bottom = 313.0
 rect_scale = Vector2( 4, 4 )
-text = "<nome do jogo>"
+text = "Gamux of the Night"
 align = 1
 valign = 1
 
@@ -294,10 +295,10 @@ align = 1
 valign = 1
 
 [node name="Price" type="Label" parent="Shop/Game"]
-margin_left = 230.0
-margin_top = 422.0
-margin_right = 385.0
-margin_bottom = 442.0
+margin_left = 288.0
+margin_top = 440.0
+margin_right = 424.0
+margin_bottom = 460.0
 rect_scale = Vector2( 4, 4 )
 text = "$999"
 align = 1
