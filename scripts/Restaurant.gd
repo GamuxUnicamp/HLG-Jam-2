@@ -8,7 +8,7 @@ onready var player = $Player
 onready var customers = $Customers
 onready var tables = $Tables
 
-export var working_time = 2
+export var working_time = 80
 var stuck_time = 0
 
 var summary_node:PackedScene = preload('res://scenes/Summary.tscn')
