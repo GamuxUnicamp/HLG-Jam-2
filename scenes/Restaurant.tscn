@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Restaurant.gd" type="Script" id=1]
 [ext_resource path="res://Tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://scenes/Sink.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Countertop.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/Tables.gd" type="Script" id=5]
-[ext_resource path="res://scenes/Table.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Trash_Can.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scripts/Customers.gd" type="Script" id=8]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://resource/copycat(by syncopika).ogg" type="AudioStream" id=10]
+[ext_resource path="res://resource/cenario.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Sink.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Countertop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Tables.gd" type="Script" id=6]
+[ext_resource path="res://scenes/Table.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Trash_Can.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/Customers.gd" type="Script" id=9]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://resource/copycat(by syncopika).ogg" type="AudioStream" id=11]
 
 [node name="Restaurant" type="Node2D"]
 script = ExtResource( 1 )
@@ -25,44 +26,48 @@ tile_data = PoolIntArray( 0, 536870920, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5
 
 [node name="Scenary" type="Sprite" parent="Navigation"]
 
-[node name="Sink" parent="." instance=ExtResource( 3 )]
-position = Vector2( 880, 290 )
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
 
-[node name="Countertop" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1540, 290 )
+[node name="Sink" parent="." instance=ExtResource( 4 )]
+position = Vector2( 865, 321 )
+
+[node name="Countertop" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1525, 321 )
 
 [node name="Tables" type="Node2D" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
-[node name="Table_1" parent="Tables" instance=ExtResource( 6 )]
+[node name="Table_1" parent="Tables" instance=ExtResource( 7 )]
 position = Vector2( 371, 813.096 )
 
-[node name="Table_2" parent="Tables" instance=ExtResource( 6 )]
+[node name="Table_2" parent="Tables" instance=ExtResource( 7 )]
 position = Vector2( 371, 550 )
 
-[node name="Table_3" parent="Tables" instance=ExtResource( 6 )]
+[node name="Table_3" parent="Tables" instance=ExtResource( 7 )]
 position = Vector2( 930, 817 )
 
-[node name="Table_4" parent="Tables" instance=ExtResource( 6 )]
+[node name="Table_4" parent="Tables" instance=ExtResource( 7 )]
 position = Vector2( 930, 551.064 )
 
-[node name="Table_5" parent="Tables" instance=ExtResource( 6 )]
+[node name="Table_5" parent="Tables" instance=ExtResource( 7 )]
 position = Vector2( 1492.7, 810 )
 
-[node name="Table_6" parent="Tables" instance=ExtResource( 6 )]
+[node name="Table_6" parent="Tables" instance=ExtResource( 7 )]
 position = Vector2( 1492.7, 544.063 )
 
-[node name="Trash_Can" parent="." instance=ExtResource( 7 )]
+[node name="Trash_Can" parent="." instance=ExtResource( 8 )]
 position = Vector2( 100, 400 )
 
 [node name="Customers" type="Node2D" parent="."]
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
-[node name="Player" parent="." instance=ExtResource( 9 )]
+[node name="Player" parent="." instance=ExtResource( 10 )]
 position = Vector2( 650, 660 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = -5.0
 autoplay = true
 mix_target = 1
