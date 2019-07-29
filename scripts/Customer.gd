@@ -134,6 +134,7 @@ func receive_waiter() -> void:
 				var food = player.hands
 				player.remove_child(food)
 				table.add_child(food)
+				food.position.x = -abs(food.position.x)
 				player.hands = null
 				patience = rand_range(10,30)
 				patience_bar.value = patience
