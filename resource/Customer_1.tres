@@ -1,10 +1,10 @@
 [gd_resource type="SpriteFrames" load_steps=6 format=2]
 
 [ext_resource path="res://resource/cliente1/parado-direita.png" type="Texture" id=1]
-[ext_resource path="res://resource/cliente1/sentado-direita-cardapio.png" type="Texture" id=2]
-[ext_resource path="res://resource/cliente1/sentado-direita.png" type="Texture" id=3]
-[ext_resource path="res://resource/cliente1/andando-direita-1.png" type="Texture" id=4]
-[ext_resource path="res://resource/cliente1/andando-direita-2.png" type="Texture" id=5]
+[ext_resource path="res://resource/cliente1/andando-direita-1.png" type="Texture" id=2]
+[ext_resource path="res://resource/cliente1/andando-direita-2.png" type="Texture" id=3]
+[ext_resource path="res://resource/cliente1/sentado-direita.png" type="Texture" id=4]
+[ext_resource path="res://resource/cliente1/sentado-direita-cardapio.png" type="Texture" id=5]
 
 [resource]
 resource_name = "Customer_1"
@@ -14,18 +14,18 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "Menu",
+"name": "Walking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Sit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Walking",
+"name": "Menu",
 "speed": 5.0
 } ]

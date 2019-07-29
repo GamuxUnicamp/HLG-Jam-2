@@ -10,12 +10,18 @@ func _ready():
 	get_node("ExitButton").connect("button_down",self,"exit_button_down")
 	get_node("CreditsPanel/CloseCreditsButton").connect("button_down",self,"close_credits_button")
 
+func _input(event):
+	if not event is InputEventMouseButton: return
+	if $CreditsPanel.visible:
+		$CreditsPanel.hide()
+
 func play_button_down():
 	yield(get_tree().create_timer(0.1), 'timeout')
 	get_tree().change_scene("res://scenes/Intro.tscn")
 
 func credits_button_down():
-	credits_panel.visible = true
+	yield(get_tree().create_timer(0.1), 'timeout')
+	credits_panel.show()
 
 func exit_button_down():
 	get_tree().quit()

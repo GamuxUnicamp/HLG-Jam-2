@@ -8,7 +8,7 @@ onready var player = $Player
 onready var customers = $Customers
 onready var tables = $Tables
 
-export var working_time = 80
+export var working_time = 2
 var stuck_time = 0
 
 var summary_node:PackedScene = preload('res://scenes/Summary.tscn')
@@ -105,10 +105,6 @@ func end_day() -> void:
 	$AudioStreamPlayer.stop()
 
 func next_day() -> void:
-	if Global.day == 7:
-		yield(get_tree().create_timer(0.1), 'timeout')
-		get_tree().change_scene("res://scenes/Ending.tscn")
-	
 	Global.day += 1
 	
 	Global.patience -= 5

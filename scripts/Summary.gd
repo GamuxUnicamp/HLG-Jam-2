@@ -38,6 +38,10 @@ func go_up() -> void:
 	# when this animation finishes, whe should destroy this object
 	if not going_up: going_up = true
 	
+	if Global.day == 7:
+		yield(get_tree().create_timer(0.1), 'timeout')
+		get_tree().change_scene("res://scenes/Ending.tscn")
+	
 	tween_node.interpolate_property(self, 'position:y', position.y, -1080, 4, Tween.TRANS_BOUNCE, Tween.EASE_OUT)
 	tween_node.start()
 
