@@ -46,6 +46,7 @@ func go_up() -> void:
 	tween_node.start()
 
 func open_shop() -> void:
+	get_node('Shop/Game/Price').text = '$'+str(Global.player_money+1)
 	var shop = $Shop
 	tween_node.interpolate_property(shop, 'rect_position:x', shop.rect_position.x, 32, 1.2, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	tween_node.start()
