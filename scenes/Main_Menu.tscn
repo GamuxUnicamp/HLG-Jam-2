@@ -1,7 +1,61 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/Main_Menu.gd" type="Script" id=1]
 [ext_resource path="res://resource/pintura-menu.png" type="Texture" id=2]
+[ext_resource path="res://resource/botoes-menu-jogar-2.png" type="Texture" id=3]
+[ext_resource path="res://resource/botoes-menu-jogar.png" type="Texture" id=4]
+[ext_resource path="res://resource/botoes-menu-creditos-2.png" type="Texture" id=5]
+[ext_resource path="res://resource/botoes-menu-creditos.png" type="Texture" id=6]
+[ext_resource path="res://resource/botoes-menu-sair-2.png" type="Texture" id=7]
+[ext_resource path="res://resource/botoes-menu-sair.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 512, 300 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 512, 300 )
 
 [node name="Main_Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,28 +66,37 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="PlayButton" type="Button" parent="."]
-margin_left = 808.0
-margin_top = 566.0
-margin_right = 940.0
-margin_bottom = 607.0
+margin_left = 1530.0
+margin_top = 385.388
+margin_right = 1670.0
+margin_bottom = 468.388
 rect_scale = Vector2( 2.32, 2.32 )
-text = "PLAY"
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 
 [node name="CreditsButton" type="Button" parent="."]
-margin_left = 804.753
-margin_top = 685.306
-margin_right = 936.753
-margin_bottom = 728.306
+margin_left = 1530.0
+margin_top = 608.116
+margin_right = 1670.0
+margin_bottom = 689.116
 rect_scale = Vector2( 2.32, 2.32 )
-text = "CRÉDITOS"
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 
 [node name="ExitButton" type="Button" parent="."]
-margin_left = 809.815
-margin_top = 825.728
-margin_right = 941.815
-margin_bottom = 868.728
+margin_left = 1530.0
+margin_top = 830.0
+margin_right = 1670.0
+margin_bottom = 907.514
 rect_scale = Vector2( 2.32, 2.32 )
-text = "SAIR"
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
 
 [node name="CreditsPanel" type="Panel" parent="."]
 visible = false
