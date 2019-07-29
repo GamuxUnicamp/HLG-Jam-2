@@ -43,6 +43,7 @@ region_rect = Rect2( 0, 0, 512, 300 )
 
 [node name="Shop" type="Node2D"]
 position = Vector2( 0, -1090 )
+z_index = 10
 script = ExtResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]

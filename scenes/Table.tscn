@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Table.gd" type="Script" id=1]
 [ext_resource path="res://resource/mesa.png" type="Texture" id=2]
 [ext_resource path="res://scripts/duplicate_material.gd" type="Script" id=3]
 [ext_resource path="res://resource/cadeiras.png" type="Texture" id=4]
+[ext_resource path="res://resource/dinheiro.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 113.101, 64.9533 )
@@ -66,3 +67,10 @@ position = Vector2( -170, 0 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 4 )
 flip_h = true
+
+[node name="Money" type="Sprite" parent="."]
+visible = false
+position = Vector2( 5.41646, -17.7969 )
+rotation = 0.44482
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )

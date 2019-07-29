@@ -103,9 +103,6 @@ func end_day() -> void:
 	summary.initialize(player.profit, customers.count, happy_customers)
 	add_child(summary)
 	$AudioStreamPlayer.stop()
-	player.hide()
-	tables.hide()
-	customers.hide()
 
 func next_day() -> void:
 	if Global.day == 7:
@@ -116,9 +113,5 @@ func next_day() -> void:
 	
 	Global.patience -= 5
 	Global.spawn_delay -= 4
-	
-	player.show()
-	tables.show()
-	customers.show()
 	
 	get_tree().reload_current_scene()

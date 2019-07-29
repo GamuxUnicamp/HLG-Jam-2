@@ -39,6 +39,7 @@ func _on_area_enter(area):
 		elif dirty:
 			dirty = false
 			get_node('Food').queue_free()
+			$Money.hide()
 			Global.player_money += money
 			player.profit += money
 			money = 0

@@ -69,6 +69,7 @@ func _process(delta:float) -> void:
 				table.dirty = true
 				table.money = int(rand_range(10,21))
 				table.get_node('Food').get_node('Food_sprite').hide()
+				table.get_node('Money').show()
 				get_parent().get_parent().happy_customers += 1
 				leave()
 	
